@@ -8,15 +8,21 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     //Items table
     public static final String DATABASE_NAME = "inventory.db";
-    public static final String TABLE_ITEMS = "items";
-    public static final String COL_1 = "itemID";
-    public static final String COL_2 = "itemName";
-    public static final String COL_3 = "itemLocation";
-    public static final String COL_4 = "itemDescription";
-    public static final String COL_5 = "renterID";
-    public static final String COL_6 = "itemInStock";
+    public static final String TABLE_ITEMS = "item";
+    public static final String ITEM_ID = "itemID";
+    public static final String ITEM_NAME = "itemName";
+    public static final String ITEM_LOCATION = "itemLocation";
+    public static final String ITEM_DESCRIPTION = "itemDescription";
+    public static final String ITEM_INSTOCK = "itemInStock";
+    public static final String ITEM_DUEDATE = "itemDueDate";
+
     //Person table
     public static final String TABLE_PERSON = "person";
+    public static final String PERSON_ID = "personID"; //foreign key also in Items table
+    public static final String PERSON_FIRST_NAME = "fName";
+    public static final String PERSON_LAST_NAME = "lName";
+    public static final String PERSON_PHONE = "phone";
+    public static final String PERSON_EMAIL = "email";
 
 
     public MyDatabaseHelper(Context context)
@@ -29,8 +35,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db)
     {
         //Still need to add foreign key to other table after testin
-        db.execSQL("create table " + TABLE_PERSON + " (personID INTEGER PRIMARY KEY AUTOINCREMENT, fName TEXT, lName TEXT, phone TEXT, email TEXT)");
-        db.execSQL("create table " + TABLE_ITEMS + " (itemID INTEGER PRIMARY KEY AUTOINCREMENT, personID INTEGER, itemName TEXT, itemLocation TEXT, itemDescription TEXT, itemInStock BOOLEAN, dueDate DATE, FOREIGN KEY(personID) REFERENCES person(personID))");
+        db.execSQL("create table " + TABLE_PERSON + " ( " + PERSON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PERSON_FIRST_NAME + " TEXT, " + PERSON_LAST_NAME + " TEXT, " + PERSON_PHONE + " TEXT, " + PERSON_EMAIL + " TEXT)");
+        db.execSQL("create table " + TABLE_ITEMS + " ( " + ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PERSON_ID + " INTEGER, " + ITEM_NAME + " TEXT, " + ITEM_LOCATION + " TEXT, " + ITEM_DESCRIPTION + " TEXT, " + ITEM_INSTOCK + " BOOLEAN, " + ITEM_DUEDATE + " DATE, FOREIGN KEY(" + PERSON_ID +") REFERENCES "+ TABLE_PERSON+"("+PERSON_ID+"))");
 
     }
     @Override
