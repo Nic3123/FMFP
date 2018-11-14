@@ -47,4 +47,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //getData sql queries
+
+    //setData update inserts and delete
+
+
 }
