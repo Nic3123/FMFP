@@ -3,10 +3,18 @@ package com.example.administrator.find_my_freaking_prop;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.View;
 import android.widget.Button;
+=======
+import android.widget.ArrayAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ListActivity {
+
+    String[] items = {"Props"};
+    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
+>>>>>>> 0fddcb5ddbe9aa7709d2be92bd7d335c9377e6c1
+
 
     //create MyDatabaseHelper Object
     MyDatabaseHelper myDb;
@@ -29,4 +37,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

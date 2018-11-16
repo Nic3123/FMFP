@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<<<<<<< HEAD
     <Button
         android:id="@+id/addItem"
         android:layout_width="wrap_content"
@@ -14,4 +15,11 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="add item" />
+=======
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+    
+>>>>>>> 0fddcb5ddbe9aa7709d2be92bd7d335c9377e6c1
 </RelativeLayout>
