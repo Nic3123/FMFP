@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Find_My_Freaking_Prop</string>
+    <string name="title_activity_description_page">DescriptionPage</string>
 </resources>
