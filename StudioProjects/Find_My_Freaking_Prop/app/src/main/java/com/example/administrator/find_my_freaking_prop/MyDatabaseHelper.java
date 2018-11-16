@@ -1,5 +1,6 @@
 package com.example.administrator.find_my_freaking_prop;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -28,7 +29,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public MyDatabaseHelper(Context context)
     {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
@@ -50,6 +50,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     //getData sql queries
 
     //setData update inserts and delete
+    public boolean insertData(String name, String description, String location)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ITEM_NAME,name);
+        contentValues.put(ITEM_DESCRIPTION,description);
+        contentValues.put(ITEM_LOCATION,location);
+        long result = db.insert(TABLE_ITEMS,null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+
+    }
 
 
 }
